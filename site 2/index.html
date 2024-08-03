@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementlerin Elektron Dizilimleri</title>
+    <style>
+        .element-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .element-label {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .orbital-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px; /* Genel boşluk ayarı */
+        }
+        .orbital-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .orbital-group.p-group-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 5px; /* P orbitallerinin arasındaki boşluk ayarı */
+        }
+        .orbital-group.p-group {
+            margin: 0 5px;
+        }
+        .orbital {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+        }
+        .orbital-label {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .electron {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="element-container">
+    <div class="element-label">Bor (B) - 5 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-b"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-b"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-b"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-b"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-b"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+    </div>
+    <button onclick="addElectron('b')">Elektron Ekle (B)</button>
+</div>
+
+<div class="element-container">
+    <div class="element-label">Karbon (C) - 6 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-c"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-c"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-c"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-c"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-c"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+    </div>
+    <button onclick="addElectron('c')">Elektron Ekle (C)</button>
+</div>
+
+<div class="element-container">
+    <div class="element-label">Azot (N) - 7 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-n"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-n"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-n"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-n"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-n"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+    </div>
+    <button onclick="addElectron('n')">Elektron Ekle (N)</button>
+</div>
+
+<div class="element-container">
+    <div class="element-label">Oksijen (O) - 8 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-o"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-o"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-o"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-o"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-o"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+    </div>
+    <button onclick="addElectron('o')">Elektron Ekle (O)</button>
+</div>
+
+<div class="element-container" style="position: absolute; right: 20px; top: 20px;">
+    <div class="element-label">Magnezyum (Mg) - 12 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-mg"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-mg"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-mg"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-mg"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-mg"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="3s-mg"></div>
+            <div class="orbital-label">3s</div>
+        </div>
+    </div>
+    <button onclick="addElectron('mg')">Elektron Ekle (Mg)</button>
+</div>
+
+<div class="element-container" style="position: absolute; right: 20px; top: 220px;">
+    <div class="element-label">Klor (Cl) - 17 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-cl"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-cl"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-cl"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-cl"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-cl"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="3s-cl"></div>
+            <div class="orbital-label">3s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3px-cl"></div>
+                <div class="orbital-label">3px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3py-cl"></div>
+                <div class="orbital-label">3py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3pz-cl"></div>
+                <div class="orbital-label">3pz</div>
+            </div>
+        </div>
+    </div>
+    <button onclick="addElectron('cl')">Elektron Ekle (Cl)</button>
+</div>
+
+<div class="element-container" style="position: absolute; right: 20px; top: 420px;">
+    <div class="element-label">Kalsiyum (Ca) - 20 Elektron</div>
+    <div class="orbital-container">
+        <div class="orbital-group">
+            <div class="orbital" id="1s-ca"></div>
+            <div class="orbital-label">1s</div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="2s-ca"></div>
+            <div class="orbital-label">2s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2px-ca"></div>
+                <div class="orbital-label">2px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2py-ca"></div>
+                <div class="orbital-label">2py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="2pz-ca"></div>
+                <div class="orbital-label">2pz</div>
+            </div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="3s-ca"></div>
+            <div class="orbital-label">3s</div>
+        </div>
+        <div class="orbital-group p-group-container">
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3px-ca"></div>
+                <div class="orbital-label">3px</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3py-ca"></div>
+                <div class="orbital-label">3py</div>
+            </div>
+            <div class="orbital-group p-group">
+                <div class="orbital" id="3pz-ca"></div>
+                <div class="orbital-label">3pz</div>
+            </div>
+        </div>
+        <div class="orbital-group">
+            <div class="orbital" id="4s-ca"></div>
+            <div class="orbital-label">4s</div>
+        </div>
+    </div>
+    <button onclick="addElectron('ca')">Elektron Ekle (Ca)</button>
+</div>
+
+<script>
+    const maxElectrons = {
+        "b": 5,
+        "c": 6,
+        "n": 7,
+        "o": 8,
+        "mg": 12,
+        "cl": 17,
+        "ca": 20
+    };
+
+    const orbitals = {
+        "b": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": []
+        },
+        "c": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": []
+        },
+        "n": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": []
+        },
+        "o": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": []
+        },
+        "mg": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": [],
+            "3s": []
+        },
+        "cl": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": [],
+            "3s": [],
+            "3px": [],
+            "3py": [],
+            "3pz": []
+        },
+        "ca": {
+            "1s": [],
+            "2s": [],
+            "2px": [],
+            "2py": [],
+            "2pz": [],
+            "3s": [],
+            "3px": [],
+            "3py": [],
+            "3pz": [],
+            "4s": []
+        }
+    };
+
+    function addElectron(element) {
+        let totalElectrons = 0;
+        for (let orbital in orbitals[element]) {
+            totalElectrons += orbitals[element][orbital].length;
+        }
+
+        if (totalElectrons >= maxElectrons[element]) {
+            return;
+        }
+
+        // 1s ve 2s orbitalini doldur
+        let orbitalSequence = ["1s", "2s"];
+        for (let orbital of orbitalSequence) {
+            if (orbitals[element][orbital].length < 2) {
+                let electron = document.createElement("div");
+                electron.classList.add("electron");
+                electron.innerHTML = orbitals[element][orbital].length === 0 ? "↑" : "↓";
+                document.getElementById(orbital + '-' + element).appendChild(electron);
+                orbitals[element][orbital].push(electron);
+                return;
+            }
+        }
+
+        // 2p orbitalini Hund kuralına göre doldur
+        let pOrbitals = ["2px", "2py", "2pz"];
+        for (let orbital of pOrbitals) {
+            if (orbitals[element][orbital].length < 2) {
+                if (orbitals[element][orbital].length === 0) {
+                    let electron = document.createElement("div");
+                    electron.classList.add("electron");
+                    electron.innerHTML = "↑";
+                    document.getElementById(orbital + '-' + element).appendChild(electron);
+                    orbitals[element][orbital].push(electron);
+                    return;
+                }
+            }
+        }
+
+        for (let orbital of pOrbitals) {
+            if (orbitals[element][orbital].length < 2) {
+                if (orbitals[element][orbital].length === 1) {
+                    let electron = document.createElement("div");
+                    electron.classList.add("electron");
+                    electron.innerHTML = "↓";
+                    document.getElementById(orbital + '-' + element).appendChild(electron);
+                    orbitals[element][orbital].push(electron);
+                    return;
+                }
+            }
+        }
+
+        // 3s orbitalini doldur
+        if (element === "mg" || element === "cl" || element === "ca") {
+            if (orbitals[element]["3s"].length < 2) {
+                let electron = document.createElement("div");
+                electron.classList.add("electron");
+                electron.innerHTML = orbitals[element]["3s"].length === 0 ? "↑" : "↓";
+                document.getElementById("3s-" + element).appendChild(electron);
+                orbitals[element]["3s"].push(electron);
+                return;
+            }
+        }
+
+        // 3p orbitalini Hund kuralına göre doldur (sadece klor ve kalsiyum için)
+        if (element === "cl" || element === "ca") {
+            let pOrbitals3 = ["3px", "3py", "3pz"];
+            for (let orbital of pOrbitals3) {
+                if (orbitals[element][orbital].length < 2) {
+                    if (orbitals[element][orbital].length === 0) {
+                        let electron = document.createElement("div");
+                        electron.classList.add("electron");
+                        electron.innerHTML = "↑";
+                        document.getElementById(orbital + '-' + element).appendChild(electron);
+                        orbitals[element][orbital].push(electron);
+                        return;
+                    }
+                }
+            }
+
+            for (let orbital of pOrbitals3) {
+                if (orbitals[element][orbital].length < 2) {
+                    if (orbitals[element][orbital].length === 1) {
+                        let electron = document.createElement("div");
+                        electron.classList.add("electron");
+                        electron.innerHTML = "↓";
+                        document.getElementById(orbital + '-' + element).appendChild(electron);
+                        orbitals[element][orbital].push(electron);
+                        return;
+                    }
+                }
+            }
+        }
+
+        // 4s orbitalini doldur (sadece kalsiyum için)
+        if (element === "ca") {
+            if (orbitals[element]["4s"].length < 2) {
+                let electron = document.createElement("div");
+                electron.classList.add("electron");
+                electron.innerHTML = orbitals[element]["4s"].length === 0 ? "↑" : "↓";
+                document.getElementById("4s-" + element).appendChild(electron);
+                orbitals[element]["4s"].push(electron);
+                return;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
